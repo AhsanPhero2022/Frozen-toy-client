@@ -12,11 +12,15 @@ const Header = () => {
     <nav className="lg:flex items-center justify-between bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% p-6">
       <div className="flex items-center">
         {/* Website Logo */}
-        <img className="h-8 w-8" src="/path/to/logo.png" alt="Logo" />
+        <img
+          className="h-8 w-8 rounded-full"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQknObtheTu65vYmjMlj53m0QGpMDLE1QTWg&usqp=CAU"
+          alt="Logo"
+        />
 
         {/* Website Name */}
         <span className="text-white text-xl font-semibold ml-2">
-          Website Name
+          Disney dolls
         </span>
       </div>
 
