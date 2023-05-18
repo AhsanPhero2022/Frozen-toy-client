@@ -4,11 +4,18 @@ import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Router from "./components/Routes/Router.jsx";
+import Banner from "./components/Home/Banner";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Router></Router>,
+    children: [
+      {
+        path: "/",
+        element: <Banner></Banner>,
+      },
+    ],
   },
 ]);
 

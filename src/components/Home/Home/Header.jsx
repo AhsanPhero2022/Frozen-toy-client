@@ -20,7 +20,7 @@ const Header = () => {
 
         {/* Website Name */}
         <span className="text-white text-xl font-semibold ml-2">
-          Disney dolls
+          Disney Dolls Shopping Mall
         </span>
       </div>
 
