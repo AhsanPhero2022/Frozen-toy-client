@@ -80,7 +80,7 @@ const Header = () => {
             MyToys
           </Link>
           <Link
-            to="/add-toy"
+            to="/addatoy"
             className="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:font-semibold hover:text-white mr-4"
           >
             Add A Toy

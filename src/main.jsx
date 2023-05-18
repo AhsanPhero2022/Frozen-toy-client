@@ -10,6 +10,7 @@ import Login from "./components/pages/Login";
 import Home from "./components/Home/Home";
 import Register from "./components/pages/Register";
 import Blog from "./components/pages/Blog";
+import AddAToy from "./components/pages/AddAToy";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
+      },
+      {
+        path: "/addatoy",
+        element: <AddAToy></AddAToy>,
       },
     ],
   },
