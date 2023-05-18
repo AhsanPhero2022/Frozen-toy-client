@@ -1,6 +1,6 @@
-import { Outlet } from "react-router-dom";
 import Header from "../Home/Home/Header";
 import Footer from "../Home/Home/Footer";
+import { Outlet } from "react-router-dom";
 
 const Router = () => {
   return (

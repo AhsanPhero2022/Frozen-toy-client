@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Router from "./components/Routes/Router.jsx";
-import Banner from "./components/Home/Banner";
+
+import Login from "./components/pages/Login";
+import Home from "./components/Home/Home";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +16,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Banner></Banner>,
+        element: <Home></Home>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
     ],
   },
