@@ -6,13 +6,13 @@ const PhotoCollection = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
   };
 
   return (
     <div>
       <h2 className="text-2xl font-semibold text-center my-5">
-        Disney Photo Gallery
+        Frozen Photo Gallery
       </h2>
       <Slider className="mx-12" {...settings}>
         <div>

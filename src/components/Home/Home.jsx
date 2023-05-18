@@ -5,7 +5,9 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <PhotoCollection></PhotoCollection>
+      <div className="py-12 bg-cyan-300">
+        <PhotoCollection></PhotoCollection>
+      </div>
     </div>
   );
 };
