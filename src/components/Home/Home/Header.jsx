@@ -13,7 +13,7 @@ const Header = () => {
       <div className="flex items-center">
         {/* Website Logo */}
         <img
-          className="h-8 w-8 rounded-full"
+          className="h-12 w-12 rounded-full"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQknObtheTu65vYmjMlj53m0QGpMDLE1QTWg&usqp=CAU"
           alt="Logo"
         />
@@ -95,12 +95,16 @@ const Header = () => {
 
         {/* Login and Register Buttons */}
         <div className="flex items-center">
-          <button className="bg-green-300  px-4 py-2 rounded hover:bg-green-200 mr-2">
-            Login
-          </button>
-          <button className="bg-green-300   px-4 py-2 rounded hover:bg-green-200">
-            Register
-          </button>
+          <Link to="/login">
+            <button className="bg-green-300  px-4 py-2 rounded hover:bg-green-200 mr-2">
+              Login
+            </button>
+          </Link>
+          <Link to="/register">
+            <button className="bg-green-300   px-4 py-2 rounded hover:bg-green-200">
+              Register
+            </button>
+          </Link>
 
           {/* User Profile Picture */}
           <img
