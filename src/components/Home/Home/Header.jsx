@@ -104,7 +104,7 @@ const Header = () => {
         {/* Login and Register Buttons */}
         <div className="flex items-center">
           {/* User Profile Picture */}
-          {user?.img ? (
+          {user?.photoURL ? (
             <img
               className="h-8 w-8 mr-6 ml-4 rounded-full"
               src="/path/to/profile-picture.png"
