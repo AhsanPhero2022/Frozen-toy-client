@@ -9,8 +9,8 @@ const Home = () => {
       <Banner></Banner>
       <div className="py-12 bg-cyan-300">
         <PhotoCollection></PhotoCollection>
-        <Section></Section>
         <AnotherSection></AnotherSection>
+        <Section></Section>
       </div>
     </div>
   );

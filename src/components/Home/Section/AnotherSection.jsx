@@ -3,7 +3,7 @@ const AnotherSection = () => {
     <section className=" py-10">
       <div className="container mx-auto px-4">
         <div className="lg:flex lg:items-center">
-          <div className="lg:mx-24">
+          <div className="lg:mx-20">
             <img
               className="lg:w-full rounded"
               src="https://i0.wp.com/theilluminerdi.com/wp-content/uploads/2020/04/at-home-with-olaf.jpg"
