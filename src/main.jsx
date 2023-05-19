@@ -12,6 +12,8 @@ import Register from "./components/pages/Register";
 import Blog from "./components/pages/Blog";
 import AddAToy from "./components/pages/AddAToy";
 import AllToys from "./components/pages/AllToys";
+import AuthProvider from "./components/pages/Provider/Provider";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +38,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addatoy",
-        element: <AddAToy></AddAToy>,
+        element: (
+          <PrivateRoute>
+            <AddAToy></AddAToy>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/alltoys",
@@ -48,6 +54,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
