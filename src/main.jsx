@@ -15,6 +15,7 @@ import AllToys from "./components/pages/AllToys";
 import AuthProvider from "./components/pages/Provider/Provider";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Error from "./components/Error/Error";
+import ViewDetails from "./components/pages/AllToysCard/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,12 @@ const router = createBrowserRouter([
       {
         path: "/alltoys",
         element: <AllToys></AllToys>,
+      },
+      {
+        path: "/viewDetails/:id",
+        element: <ViewDetails></ViewDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/frozen/${params.id}`),
       },
     ],
   },
