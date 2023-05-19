@@ -14,11 +14,13 @@ import AddAToy from "./components/pages/AddAToy";
 import AllToys from "./components/pages/AllToys";
 import AuthProvider from "./components/pages/Provider/Provider";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Error from "./components/Error/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Router></Router>,
+    errorElement: <Error />,
     children: [
       {
         path: "/",

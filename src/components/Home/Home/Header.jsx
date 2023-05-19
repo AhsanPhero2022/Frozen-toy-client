@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom"; // Assuming you're using React Router
+import { AuthContext } from "../../pages/Provider/Provider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .then((error) => console.log(error));
+  };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -95,23 +103,39 @@ const Header = () => {
 
         {/* Login and Register Buttons */}
         <div className="flex items-center">
-          <Link to="/login">
-            <button className="bg-green-300  px-4 py-2 rounded hover:bg-green-200 mr-2">
-              Login
-            </button>
-          </Link>
-          <Link to="/register">
-            <button className="bg-green-300   px-4 py-2 rounded hover:bg-green-200">
-              Register
-            </button>
-          </Link>
-
           {/* User Profile Picture */}
-          <img
-            className="h-8 w-8 ml-4 rounded-full"
-            src="/path/to/profile-picture.png"
-            alt="Profile"
-          />
+          {user?.img ? (
+            <img
+              className="h-8 w-8 mr-6 ml-4 rounded-full"
+              src="/path/to/profile-picture.png"
+              alt="Profile"
+            />
+          ) : (
+            ""
+          )}
+          {user?.email ? (
+            <button
+              onClick={handleLogOut}
+              className="bg-green-300  px-4 py-2 rounded hover:bg-green-200 mr-2"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className="bg-green-300  px-4 py-2 rounded hover:bg-green-200 mr-2">
+                Login
+              </button>
+            </Link>
+          )}
+          {user?.email ? (
+            ""
+          ) : (
+            <Link to="/register">
+              <button className="bg-green-300   px-4 py-2 rounded hover:bg-green-200">
+                Register
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </nav>
