@@ -15,6 +15,36 @@ const MyToys = () => {
         setMyToys(data);
       });
   }, []);
+
+  const handleDelete = (id) => {
+    const proceed = confirm("are you sure you want to delete");
+    if (proceed) {
+      fetch(`http://localhost:5000/frozen/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert("booking deleted");
+            const remaining = myToys.filter((myToy) => myToy._id !== id);
+            setMyToys(remaining);
+          }
+        });
+    }
+  };
+
+  const handleConfirm = (id) => {
+    fetch(`http://localhost:5000/frozen/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          // update star
+        }
+      });
+  };
+
   return (
     <div>
       <h2>this is bookings: {myToys.length}</h2>
@@ -29,9 +59,9 @@ const MyToys = () => {
                 </label>
               </th>
               <th>Images</th>
-              <th>Service</th>
-              <th>Date</th>
+              <th>Quantity</th>
               <th>Price</th>
+              <th>Description</th>
               <th>Status</th>
             </tr>
           </thead>

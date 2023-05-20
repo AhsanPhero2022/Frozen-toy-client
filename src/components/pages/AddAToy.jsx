@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 
 const AddAToy = () => {
-  const handleAddCoffee = (event) => {
+  const handleAddToy = (event) => {
     event.preventDefault();
     const form = event.target;
 
@@ -50,7 +50,7 @@ const AddAToy = () => {
   return (
     <div className="bg-amber-200 p-16">
       <h1 className="text-center text-3xl">Add A Disney Toy</h1>
-      <form onSubmit={handleAddCoffee}>
+      <form onSubmit={handleAddToy}>
         {/* form name and quantity row */}
         <div className="md:flex gap-4 ">
           <div className="form-control md:w-1/2">

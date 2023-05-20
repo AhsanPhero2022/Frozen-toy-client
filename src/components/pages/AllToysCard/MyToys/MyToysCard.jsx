@@ -1,5 +1,7 @@
-const MyToysCard = ({ myToy }) => {
-  const { img, Price, quantity, description } = myToy;
+import { Link } from "react-router-dom";
+
+const MyToysCard = ({ myToy, handleDelete, handleConfirm }) => {
+  const { _id, img, Price, quantity, description } = myToy;
 
   return (
     <tbody>
@@ -34,9 +36,6 @@ const MyToysCard = ({ myToy }) => {
                 {img && <img src={img} alt="Avatar Tailwind CSS Component" />}
               </div>
             </div>
-            <div>
-              <div className="font-bold"> {service} </div>
-            </div>
           </div>
         </td>
         <td>{quantity}</td>
@@ -44,16 +43,14 @@ const MyToysCard = ({ myToy }) => {
         <td>{description}</td>
 
         <th>
-          {status === "confirm" ? (
-            <span className="text-orange-500 font-bold">Confirm</span>
-          ) : (
+          <Link to={`/update/${_id}`}>
             <button
               onClick={() => handleConfirm(_id)}
-              className=" btn btn-ghost btn-xs"
+              className=" btn btn-ghost px-3 btn-xs"
             >
-              Please Confirm
+              Update Toy Info
             </button>
-          )}
+          </Link>
         </th>
       </tr>
     </tbody>

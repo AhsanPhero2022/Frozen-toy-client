@@ -17,6 +17,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Error from "./components/Error/Error";
 import ViewDetails from "./components/pages/AllToysCard/ViewDetails";
 import MyToys from "./components/pages/AllToysCard/MyToys/MyToys";
+import Update from "./components/pages/AllToysCard/MyToys/Update";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,12 @@ const router = createBrowserRouter([
             <MyToys></MyToys>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/frozen/${params.id}`),
       },
     ],
   },
