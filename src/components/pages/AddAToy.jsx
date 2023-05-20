@@ -1,6 +1,13 @@
+import { useState } from "react";
 import Swal from "sweetalert2";
 
 const AddAToy = () => {
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+
   const handleAddToy = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -14,6 +21,7 @@ const AddAToy = () => {
     const img = form.photo.value;
     const sub_category = form.category.value;
     const Price = form.price.value;
+
     const newFrozen = {
       title,
       quantity,
@@ -48,7 +56,7 @@ const AddAToy = () => {
   };
 
   return (
-    <div className="bg-amber-200 p-16">
+    <div className="bg-cyan-200 p-16">
       <h1 className="text-center text-3xl">Add A Disney Toy</h1>
       <form onSubmit={handleAddToy}>
         {/* form name and quantity row */}
@@ -154,17 +162,32 @@ const AddAToy = () => {
         <div className="md:flex gap-4 ">
           <div className="form-control md:w-1/2">
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Sub_Category</span>
-              </label>
               <label className="input-group">
                 <input
                   name="category"
+                  value={selectedCategory}
+                  id="subcategory"
+                  className="input mt-9 input-bordered w-full"
                   type="text"
-                  placeholder="Category"
-                  className="input input-bordered w-full"
                 />
               </label>
+              <select
+                className="w-24 "
+                id="subcategory"
+                value={selectedCategory}
+                onChange={handleCategoryChange}
+              >
+                <option value="">Select a category</option>
+                <option className="text-green-300" value="prince">
+                  prince
+                </option>
+                <option className="text-green-300" value="queen">
+                  queen
+                </option>
+                <option className="text-green-300" value="olaf">
+                  olaf
+                </option>
+              </select>
             </div>
           </div>
           <div className="form-control md:w-1/2 ml-4">

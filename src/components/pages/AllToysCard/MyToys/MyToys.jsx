@@ -14,7 +14,7 @@ const MyToys = () => {
       .then((data) => {
         setMyToys(data);
       });
-  }, []);
+  }, [url]);
 
   const handleDelete = (id) => {
     const proceed = confirm("are you sure you want to delete");
@@ -47,22 +47,20 @@ const MyToys = () => {
 
   return (
     <div>
-      <h2>this is bookings: {myToys.length}</h2>
+      <h2 className="text-2xl font-semibold text-center py-8">
+        This is My Toys: {myToys.length}
+      </h2>
       <div className=" w-full">
         <table className="table w-full">
           {/* head */}
           <thead>
             <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
+              <th>Delete</th>
               <th>Images</th>
               <th>Quantity</th>
               <th>Price</th>
               <th>Description</th>
-              <th>Status</th>
+              <th>Update</th>
             </tr>
           </thead>
 
