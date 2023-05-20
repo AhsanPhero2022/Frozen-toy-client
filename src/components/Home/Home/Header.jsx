@@ -15,7 +15,7 @@ const Header = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-
+  console.log(user);
   return (
     <nav className="lg:flex items-center justify-between bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% p-6">
       <div className="flex items-center">
@@ -82,7 +82,7 @@ const Header = () => {
             AllToys
           </Link>
           <Link
-            to="/my-toys"
+            to="/mytoys"
             className="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:font-semibold hover:text-white mr-4"
           >
             MyToys

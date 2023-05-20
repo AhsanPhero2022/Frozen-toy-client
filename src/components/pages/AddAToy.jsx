@@ -9,7 +9,7 @@ const AddAToy = () => {
     const quantity = form.quantity.value;
     const description = form.description.value;
     const Seller = form.seller.value;
-    const sellerEmail = form.sellerEmail.value;
+    const email = form.sellerEmail.value;
     const ratings = form.ratings.value;
     const img = form.photo.value;
     const sub_category = form.category.value;
@@ -17,7 +17,7 @@ const AddAToy = () => {
     const newFrozen = {
       title,
       quantity,
-      sellerEmail,
+      email,
       Seller,
       ratings,
       img,
