@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const AllToysCard = ({ frozen }) => {
   const { _id, img, title, quantity, sub_category, Price } = frozen;
+
   return (
     <div className=" ">
       <table className="table-auto mx-auto ">

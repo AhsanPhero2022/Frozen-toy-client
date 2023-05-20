@@ -1,8 +1,10 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import useTitle from "../../hook/useTitle";
 
 const Banner = () => {
+  useTitle("Home");
   useEffect(() => {
     AOS.init({
       duration: 2000, // Animation duration

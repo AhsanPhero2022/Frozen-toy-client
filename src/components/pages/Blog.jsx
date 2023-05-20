@@ -1,4 +1,7 @@
+import useTitle from "../../hook/useTitle";
+
 const Blog = () => {
+  useTitle("Blog");
   return (
     <>
       <div className="mockup-window border bg-base-300 mt-5">

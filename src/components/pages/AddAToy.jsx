@@ -1,8 +1,10 @@
 import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "./Provider/Provider";
+import useTitle from "../../hook/useTitle";
 
 const AddAToy = () => {
+  useTitle("Add A Toy");
   const [selectedCategory, setSelectedCategory] = useState("");
   const { user } = useContext(AuthContext);
 
@@ -71,6 +73,7 @@ const AddAToy = () => {
               <label className="input-group">
                 <input
                   name="name"
+                  required
                   type="text"
                   placeholder="Toy Name"
                   className="input input-bordered w-full"
@@ -86,6 +89,7 @@ const AddAToy = () => {
               <label className="input-group">
                 <input
                   name="quantity"
+                  required
                   type="text"
                   placeholder="Quantity"
                   className="input input-bordered w-full"
@@ -104,6 +108,7 @@ const AddAToy = () => {
               <label className="input-group">
                 <input
                   name="seller"
+                  required
                   type="text"
                   placeholder="Seller Name"
                   className="input input-bordered w-full"
@@ -119,8 +124,9 @@ const AddAToy = () => {
               <label className="input-group">
                 <input
                   name="price"
+                  required
                   type="text"
-                  placeholder="Price"
+                  placeholder="$ 00.00"
                   className="input input-bordered w-full"
                 />
               </label>
@@ -137,6 +143,7 @@ const AddAToy = () => {
               <label className="input-group">
                 <input
                   name="sellerEmail"
+                  required
                   type="text"
                   defaultValue={user?.email}
                   placeholder="Seller Email"
@@ -201,6 +208,7 @@ const AddAToy = () => {
               <label className="input-group">
                 <input
                   name="ratings"
+                  required
                   type="text"
                   placeholder="Ratings"
                   className="input input-bordered w-full"

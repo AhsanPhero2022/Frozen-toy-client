@@ -2,13 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/Provider";
 import MyToysCard from "./MyToysCard";
 import Swal from "sweetalert2";
+import useTitle from "../../../../hook/useTitle";
 
 const MyToys = () => {
+  useTitle("MyToys");
   const { user } = useContext(AuthContext);
 
   const [myToys, setMyToys] = useState([]);
 
-  console.log(myToys);
   const url = `http://localhost:5000/myToys?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
@@ -17,8 +18,6 @@ const MyToys = () => {
         setMyToys(data);
       });
   }, [url]);
-
-  console.log(myToys);
 
   const handleDelete = (id) => {
     const proceed = confirm("are you sure you want to delete");
