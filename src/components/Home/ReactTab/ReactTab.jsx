@@ -34,12 +34,15 @@ const ReactTab = () => {
 
   // console.log(category);
   return (
-    <div className="py-6 mx-12 lg:mx-24">
+    <div className="py-6 my-12 mx-12 lg:mx-24">
+      <h2 className="text-2xl font-semibold text-center mt-4">
+        This is Sub Category
+      </h2>
       <Tabs>
-        <TabList>
-          <Tab>Title 1</Tab>
-          <Tab>Title 2</Tab>
-          <Tab>Title 2</Tab>
+        <TabList className="font-semibold my-4 ">
+          <Tab>Queens Doll</Tab>
+          <Tab>Princes Doll</Tab>
+          <Tab>Olafs Doll</Tab>
         </TabList>
 
         <TabPanel>

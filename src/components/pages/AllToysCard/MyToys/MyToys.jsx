@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/Provider";
 import MyToysCard from "./MyToysCard";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
-  console.log(user.email);
+
   const [myToys, setMyToys] = useState([]);
   // console.log(myToys);
   const url = `http://localhost:5000/frozen?email=${user?.email}`;
@@ -24,9 +25,15 @@ const MyToys = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.deletedCount > 0) {
-            alert("booking deleted");
+            Swal.fire({
+              title: " Done!",
+
+              text: "Deleted done",
+              icon: "success",
+              imageWidth: 400,
+              imageHeight: 200,
+            });
             const remaining = myToys.filter((myToy) => myToy._id !== id);
             setMyToys(remaining);
           }
@@ -38,9 +45,15 @@ const MyToys = () => {
     fetch(`http://localhost:5000/frozen/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount > 0) {
-          // update star
+          Swal.fire({
+            title: "Well done",
+
+            text: "Toy Updated Successful",
+            icon: "success",
+            imageWidth: 400,
+            imageHeight: 200,
+          });
         }
       });
   };

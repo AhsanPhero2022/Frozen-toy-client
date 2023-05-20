@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom"; // Assuming you're using React Router
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../pages/Provider/Provider";
+import { Tooltip } from "react-tooltip";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -15,7 +16,8 @@ const Header = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-  // console.log(user);
+  console.log(user);
+
   return (
     <nav className="lg:flex items-center justify-between bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% p-6">
       <div className="flex items-center">
@@ -104,12 +106,15 @@ const Header = () => {
         {/* Login and Register Buttons */}
         <div className="flex items-center">
           {/* User Profile Picture */}
-          {user?.photoURL ? (
-            <img
-              className="h-8 w-8 mr-6 ml-4 rounded-full"
-              src="/path/to/profile-picture.png"
-              alt="Profile"
-            />
+          {user ? (
+            <div className="h-8 w-8 mr-6 ml-4 ">
+              <a
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={user.displayName}
+              >
+                <img className="rounded-full" src={user.photoURL} alt="" />
+              </a>
+            </div>
           ) : (
             ""
           )}
@@ -138,6 +143,7 @@ const Header = () => {
           )}
         </div>
       </div>
+      <Tooltip id="my-tooltip" />
     </nav>
   );
 };

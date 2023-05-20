@@ -1,24 +1,78 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./Provider/Provider";
+import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
+
     const email = form.email.value;
+
     const password = form.password.value;
-    console.log(name, email, password);
+    const photo = form.photo.value;
+
+    if (password.length < 6) {
+      Swal.fire({
+        title: "Try Again!",
+        text: "Password Must be 6 characters long",
+        icon: "warning",
+        imageWidth: 400,
+        imageHeight: 200,
+      });
+
+      return;
+    }
 
     createUser(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        const createdUser = result.user;
+        profileUpdate(name, photo, createdUser);
+        navigate("/");
+        if (createdUser) {
+          Swal.fire({
+            title: "Great!",
+
+            text: "Successfully Login",
+            icon: "success",
+            imageWidth: 400,
+            imageHeight: 200,
+          });
+        }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        if (error) {
+          Swal.fire({
+            title: "Try Again",
+
+            text: "Existing Gmail",
+            icon: "warning",
+            imageWidth: 400,
+            imageHeight: 200,
+          });
+        }
+      });
+  };
+
+  const profileUpdate = (name, photo, createdUser) => {
+    updateProfile(createdUser, {
+      displayName: name,
+      photoURL: photo,
+    })
+      .then((result) => {
+        const createdUser = result.user;
+        console.log(createdUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
