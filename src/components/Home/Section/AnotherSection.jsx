@@ -1,4 +1,15 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const AnotherSection = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 2000, // Animation duration
+      easing: "ease-in-out", // Easing function
+      // Additional configuration options
+    });
+  }, []);
+
   return (
     <section className=" py-10">
       <div className="container mx-auto px-4">
@@ -12,7 +23,10 @@ const AnotherSection = () => {
             <h2 className="text-3xl text-white font-bold mb-4 text-center py-8">
               This is Olaf
             </h2>
-            <p className="text-center lg:px-12 text-white mb-4">
+            <p
+              data-aos="fade-up"
+              className="text-center lg:px-12 text-white mb-4"
+            >
               Olaf Presents is an animated comedy miniseries of shorts that
               features Olaf (Josh Gad) retelling the stories of Disney films.
               The series was inspired by a scene in Frozen II where Olaf recaps
@@ -23,7 +37,10 @@ const AnotherSection = () => {
         </div>
       </div>
       <div className="text-center my-8">
-        <button className=" bg-gradient-to-r from-blue-200 to-green-300 font-semibold py-2 px-4 rounded-full shadow-md ">
+        <button
+          data-aos="zoom-in "
+          className=" bg-gradient-to-r from-blue-200 to-green-300 font-semibold py-2 px-4 rounded-full shadow-md "
+        >
           View Olaf Story
         </button>
       </div>

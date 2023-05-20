@@ -7,8 +7,9 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
 
   const [myToys, setMyToys] = useState([]);
-  // console.log(myToys);
-  const url = `http://localhost:5000/frozen?email=${user?.email}`;
+
+  console.log(myToys);
+  const url = `http://localhost:5000/myToys?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -16,6 +17,8 @@ const MyToys = () => {
         setMyToys(data);
       });
   }, [url]);
+
+  console.log(myToys);
 
   const handleDelete = (id) => {
     const proceed = confirm("are you sure you want to delete");

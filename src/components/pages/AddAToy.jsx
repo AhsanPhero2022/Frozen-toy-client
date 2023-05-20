@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "./Provider/Provider";
 
 const AddAToy = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
+  const { user } = useContext(AuthContext);
 
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
@@ -136,6 +138,7 @@ const AddAToy = () => {
                 <input
                   name="sellerEmail"
                   type="text"
+                  defaultValue={user?.email}
                   placeholder="Seller Email"
                   className="input input-bordered w-full"
                 />
