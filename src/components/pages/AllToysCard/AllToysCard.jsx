@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const AllToysCard = ({ frozen }) => {
-  console.log(frozen);
   const { _id, img, title, quantity, sub_category, Price } = frozen;
   return (
     <div className=" ">

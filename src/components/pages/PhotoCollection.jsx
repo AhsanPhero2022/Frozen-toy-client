@@ -12,7 +12,7 @@ const PhotoCollection = () => {
   return (
     <div>
       <h2 className="text-2xl font-semibold text-center my-5">
-        Frozen Photo Gallery
+        Frozen Doll Photo Gallery
       </h2>
       <Slider className="mx-12 " {...settings}>
         <div className="">
