@@ -91,6 +91,7 @@ const Register = () => {
                 <input
                   name="name"
                   type="text"
+                  required
                   placeholder="Your Names"
                   className="input input-bordered w-96"
                 />
@@ -113,6 +114,7 @@ const Register = () => {
                 <input
                   name="email"
                   type="text"
+                  required
                   placeholder="Your Email"
                   className="input input-bordered w-96"
                 />
@@ -124,6 +126,7 @@ const Register = () => {
                 <input
                   name="password"
                   type="password"
+                  required
                   placeholder="password"
                   className="input input-bordered"
                 />

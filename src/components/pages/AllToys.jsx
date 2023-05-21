@@ -5,6 +5,8 @@ import useTitle from "../../hook/useTitle";
 const AllToys = () => {
   useTitle("All Toys");
   const [frozens, setFrozens] = useState([]);
+  const [visibleProducts, setVisibleProducts] = useState(20);
+  const [page, setPage] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/frozen")
@@ -14,7 +16,23 @@ const AllToys = () => {
       });
   }, []);
 
-  const [visibleProducts, setVisibleProducts] = useState(20);
+  const handleClick = () => {
+    fetch("http://localhost:5000/frozenSort")
+      .then((res) => res.json())
+      .then((data) => {
+        setFrozens(data);
+      });
+  };
+
+  const searchHadle = (e) => {
+    e.preventDefault();
+    fetch(`http://localhost:5000/frozenSearch/${page}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setFrozens(data);
+      });
+  };
+
   const totalProducts = frozens.length;
 
   const handleLoadMore = () => {
@@ -26,6 +44,17 @@ const AllToys = () => {
       <h1 className="text-3xl font-semibold text-center py-8 bg-cyan-200">
         All Toys: {frozens.length}
       </h1>
+
+      <input
+        onChange={(e) => setPage(e.target.value)}
+        placeholder="Search"
+        type="text"
+      />
+      <button onClick={searchHadle}>Search</button>
+      <button className="ms-12" onClick={handleClick}>
+        sort
+      </button>
+
       <div className=" bg-gray-100 lg:w-1/2 mx-auto my-8">
         {frozens.slice(0, visibleProducts).map((frozen) => (
           <AllToysCard

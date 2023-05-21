@@ -8,7 +8,7 @@ ReactJs is a JavaScript Library. It's very first and good productional library f
 ## Loader
 
 ```
-This project used  loader for  do non't give error when loading.
+This project used  loader for  do not give error when loading.
 ```
 
 ## Uses

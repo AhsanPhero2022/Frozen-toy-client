@@ -108,7 +108,7 @@ const AddAToy = () => {
               <label className="input-group">
                 <input
                   name="seller"
-                  required
+                  defaultValue={user?.displayName}
                   type="text"
                   placeholder="Seller Name"
                   className="input input-bordered w-full"
@@ -143,7 +143,6 @@ const AddAToy = () => {
               <label className="input-group">
                 <input
                   name="sellerEmail"
-                  required
                   type="text"
                   defaultValue={user?.email}
                   placeholder="Seller Email"
