@@ -9,7 +9,7 @@ const AllToys = () => {
   const [page, setPage] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/frozen")
+    fetch("https://assignment-11-server-one-ochre.vercel.app/frozen")
       .then((res) => res.json())
       .then((data) => {
         setFrozens(data);
@@ -17,7 +17,7 @@ const AllToys = () => {
   }, []);
 
   const handleClick = () => {
-    fetch("http://localhost:5000/frozenSort")
+    fetch("https://assignment-11-server-one-ochre.vercel.app/frozenSort")
       .then((res) => res.json())
       .then((data) => {
         setFrozens(data);
@@ -26,7 +26,9 @@ const AllToys = () => {
 
   const searchHadle = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/frozenSearch/${page}`)
+    fetch(
+      `https://assignment-11-server-one-ochre.vercel.app/frozenSearch/${page}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setFrozens(data);

@@ -37,10 +37,9 @@ const AddAToy = () => {
       description,
       Price,
     };
-    console.log(newFrozen);
 
     // send data to the  server
-    fetch("http://localhost:5000/frozen", {
+    fetch("https://assignment-11-server-one-ochre.vercel.app/frozen", {
       method: "POST",
       headers: {
         "content-Type": "application/json",

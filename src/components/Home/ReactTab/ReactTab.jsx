@@ -9,7 +9,7 @@ const ReactTab = () => {
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/frozen")
+    fetch("https://assignment-11-server-one-ochre.vercel.app/frozen")
       .then((res) => res.json())
       .then((data) => {
         setCategory(data);

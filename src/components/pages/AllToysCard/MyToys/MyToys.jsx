@@ -10,7 +10,7 @@ const MyToys = () => {
 
   const [myToys, setMyToys] = useState([]);
 
-  const url = `http://localhost:5000/myToys?email=${user?.email}`;
+  const url = `https://assignment-11-server-one-ochre.vercel.app/myToys?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -22,7 +22,7 @@ const MyToys = () => {
   const handleDelete = (id) => {
     const proceed = confirm("are you sure you want to delete");
     if (proceed) {
-      fetch(`http://localhost:5000/frozen/${id}`, {
+      fetch(`https://assignment-11-server-one-ochre.vercel.app/frozen/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -44,13 +44,12 @@ const MyToys = () => {
   };
 
   const handleConfirm = (id) => {
-    fetch(`http://localhost:5000/frozen/${id}`)
+    fetch(`https://assignment-11-server-one-ochre.vercel.app/frozen/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Well done",
-
             text: "Toy Updated Successful",
             icon: "success",
             imageWidth: 400,

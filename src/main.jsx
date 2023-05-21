@@ -61,7 +61,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/frozen/${params.id}`),
+          fetch(
+            `https://assignment-11-server-one-ochre.vercel.app/frozen/${params.id}`
+          ),
       },
       {
         path: "/mytoys",
@@ -75,7 +77,9 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <Update></Update>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/frozen/${params.id}`),
+          fetch(
+            `https://assignment-11-server-one-ochre.vercel.app/frozen/${params.id}`
+          ),
       },
     ],
   },

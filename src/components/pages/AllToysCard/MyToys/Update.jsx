@@ -20,7 +20,7 @@ const Update = () => {
     console.log(updatedFrozen);
 
     // send data to the  server
-    fetch(`http://localhost:5000/frozen/${_id}`, {
+    fetch(`https://assignment-11-server-one-ochre.vercel.app/frozen/${_id}`, {
       method: "PUT",
       headers: {
         "content-Type": "application/json",
